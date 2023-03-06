@@ -193,7 +193,7 @@ class Game:
                     tot_score += score
                     print("Total move score %d" % tot_score)
                     if not self.registry.can_stop_to_roll(p, tot_score):
-                        input("Press Enter")
+                        input("Press Enter\n")
                         continue
                     if not s.roll_the_dices(self.registry, p, score, remain_dices):
                         break
@@ -205,7 +205,7 @@ class Game:
                 else:
                     self.registry.penalty(p)
                 print("Move done %s\n" % p)
-                input("Press Enter")
+                input("Press Enter\n")
 
 
 class TrivialStrategy(Strategy):
