@@ -115,6 +115,12 @@ class Registry:
             player.barrels += 1
             player.on_barrel = True
             return False
+        for p in self.players:
+            if p != player:
+                if p.score > player.score and p.score < player.score + score:
+                    print("Player %s was overtaken by player %s and will be penalized 50 points."%(p.name, player.name))
+                    p.score -= 50
+                    self.check_exceptions(p)
         player.score += score
         self.check_exceptions(player)
         return player.score >= 1000
